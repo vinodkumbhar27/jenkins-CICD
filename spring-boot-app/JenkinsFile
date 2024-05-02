@@ -1,10 +1,11 @@
 pipeline {
-  agent {
+agent {
     docker {
-      image 'vinodkumbhar27/docker-agent:v1'
-      args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
+        image 'vinodkumbhar27/docker-agent:v1'
+        args '--user root -v /var/run/docker.sock:/var/run/docker.sock --entrypoint=""'
     }
-  }
+}
+
   stages {
     stage('Checkout') {
       steps {
